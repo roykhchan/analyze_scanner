@@ -35,6 +35,9 @@ export class TickerMockFactory implements MockFactory<TickerItem> {
     public ticker_minHalfYearPerformance(v:number) {
         this.ticker.SixMonthPerformance = v;
     }
+    public ticker_minMonthPerformance(v:number) {
+        this.ticker.MonthlyPerformance = v;
+    }
     
     public build(): TickerItem {
         return this.ticker;
