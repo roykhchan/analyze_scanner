@@ -38,7 +38,24 @@ export class TickerMockFactory implements MockFactory<TickerItem> {
     public ticker_minMonthPerformance(v:number) {
         this.ticker.MonthlyPerformance = v;
     }
-    
+    public ticker_minQuarterPerformance(v:number) {
+        this.ticker.ThreeMonthPerformance = v;
+    }
+    public ticker_fiveTwoWeekLow(v?:number) {
+        this.ticker.FiveTwoWeekLow = v;
+    }
+    public ticker_fiveTwoWeekHigh(v?:number) {
+        this.ticker.FiveTwoWeekHigh = v;
+    }
+    public ticker_price(v:number) {
+        this.ticker.Price = v;
+    }
+    public ticker_volatility(day?:number, week?:number, month?:number) {
+        this.ticker.Volatility = day;
+        this.ticker.VolatilityWeek = week;
+        this.ticker.VolatilityMonth = month;
+
+    }
     public build(): TickerItem {
         return this.ticker;
     }

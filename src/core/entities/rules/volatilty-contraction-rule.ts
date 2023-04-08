@@ -4,6 +4,7 @@ import { CompositeRule } from "./composite-rule";
 
 export class VolatilityContractionRule extends CompositeRule {
     isSatisfiedBy(ticker: TickerItem): boolean {
-        return ticker.VolatilityWeek < ticker.VolatilityMonth;
+        if(!ticker.VolatilityWeek || !ticker.VolatilityMonth) return true;
+        return ticker.VolatilityWeek <= ticker.VolatilityMonth;
     }
 }
