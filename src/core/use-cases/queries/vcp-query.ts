@@ -4,7 +4,7 @@ import { MinQuarterPerformanceRule } from "../../entities/rules/min-quarter-perf
 import { PercentAboveWeek52LowRule } from "../../entities/rules/percent-above-week-52-low-rule";
 import { PercentBelowWeek52HighRule } from "../../entities/rules/percent-below-week-52-high-rule";
 import { VolatilityContractionRule } from "../../entities/rules/volatilty-contraction-rule";
-import { Week52HighGreaterThanTenRule } from "../../entities/rules/week-52-high-greater-than-ten-rule";
+import { Week52HighGreaterThanRule } from "../../entities/rules/week-52-high-greater-than-rule";
 import { BaseQuery } from "../../ports/base-query";
 import { TickerItem } from "../../ports/ticker-Item";
 
@@ -16,7 +16,7 @@ export class VcpQuery implements BaseQuery<void, TickerItem[]> {
         let min30PercentQuarterlyPerformance = new MinQuarterPerformanceRule(30);
         let min30Percent6MonthsPerformance = new MinHalfYearPerformanceRule(30);
         let vcpSpec = new VolatilityContractionRule();
-        let week52HighGreaterThanTenSpec = new Week52HighGreaterThanTenRule();
+        let week52HighGreaterThanTenSpec = new Week52HighGreaterThanRule(10);
         let priceIs30PercentAboveWeek52LowSpec = new PercentAboveWeek52LowRule(30);
         let priceIsWithin35PercentFromWeek52HighSpec = new PercentBelowWeek52HighRule(35);
 
