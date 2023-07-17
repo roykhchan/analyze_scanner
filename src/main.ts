@@ -22,7 +22,7 @@ async function main (tickerRepo:TickerRepositoryCsv, selectedFilePath:string){
         if(!tickers || tickers.length <= 0) throw new Error('no tickers');
 
         let query = new VcpQuery(tickers);
-        let result = query.run();
+        let result = query.run(process.argv[2]);
         displaySummary(result);
         displayTable(result);
         console.timeEnd('runtime');
